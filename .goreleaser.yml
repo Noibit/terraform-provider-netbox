@@ -22,7 +22,7 @@ builds:
       - darwin
     goarch:
       - amd64
-      - "386"
+      # - "386"
       # - arm
       - arm64
     ignore:
@@ -50,5 +50,11 @@ signs:
 release:
   # If you want to manually examine the release before its live, uncomment this line:
   # draft: true
+  extra_files:
+    - glob: 'terraform-registry-manifest.json'
+      name_template: '{{ .ProjectName }}_{{ .Version }}_manifest.json'
+  github:
+    owner: Noibit
+    name: terraform-provider-netbox
 changelog:
   skip: true
